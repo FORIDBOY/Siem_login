@@ -61,4 +61,5 @@ def serve_static(filename):
 
 # ------------------- Run the App -------------------
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))  # fallback for local
+    app.run(host='0.0.0.0', port=port)
