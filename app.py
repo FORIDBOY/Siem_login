@@ -15,13 +15,18 @@ logging.basicConfig(
     format='%(asctime)s - %(message)s'
 )
 
-# ------------------- Twilio Configuration -------------------
+from twilio.rest import Client
+import os
+
 TWILIO_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH = os.getenv("TWILIO_AUTH_TOKEN")
 TWILIO_FROM = os.getenv("TWILIO_FROM")
 TWILIO_TO = os.getenv("TWILIO_TO")
 
 client = Client(TWILIO_SID, TWILIO_AUTH)
+
+
+
 
 def send_sms_alert(message):
     try:
