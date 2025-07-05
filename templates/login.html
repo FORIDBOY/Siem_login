@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.ibb.co/7YQK3gH/lock-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .login-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: left;
+      width: 320px;
+    }
+
+    .login-box h2 {
+      font-weight: 600;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 4px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+
+    .login-btn {
+      margin-top: 20px;
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      border: 2px solid #ccc;
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .login-btn:hover {
+      background-color: #ddd;
+    }
+
+    .error {
+      color: red;
+      margin-top: 15px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Welcome, <span style="font-weight:300">New User</span></h2> 
+ <form action="/login" method="POST">
+  <label for="username">Username</label>
+  <input type="text" name="username" required>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" required>
+
+  <button class="login-btn" type="submit">Login</button>
+</form>
+    </div>
+
+
+
+</body>
+</html>
