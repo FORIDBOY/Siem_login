@@ -76,4 +76,5 @@ def login():
         logging.info(f"SUCCESS_LOGIN | User: {username} | IP: {ip} | Agent: {user_agent}")
         return redirect('/static/info.html')
     else:
-        logging.warning(f"FAILED_LOGIN | User: {username} | IP: {ip} | Agent: {user_agent
+        logging.warning(f"FAILED_LOGIN | User: {username} | IP: {ip} | Agent: {user_agent}")
+
