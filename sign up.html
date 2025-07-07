@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Creative Login</title>
+  <style>
+    body {
+      background: #0f2027;  /* fallback for old browsers */
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      width: 320px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .login-box input {
+      width: 80%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-bottom: 2px solid #333;
+      outline: none;
+      background: transparent;
+    }
+
+    .login-btn {
+      position: relative;
+      display: inline-block;
+      padding: 12px 24px;
+      background: #2c5364;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .login-btn.locked {
+      padding-left: 40px;
+    }
+
+    .login-btn .key {
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      transition: all 0.5s ease;
+    }
+
+    .login-btn.locked .key {
+      left: 10px;
+    }
+
+    .message {
+      margin-top: 15px;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <br />
+    <button class="login-btn" id="loginBtn">
+      <div class="key"></div>
+      Login
+    </button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const loginBtn = document.getElementById('loginBtn');
+    const message = document.getElementById('message');
+
+    loginBtn.addEventListener('click', () => {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Example: correct username and password
+      const correctUsername = 'admin';
+      const correctPassword = '1234';
+
+      if (username === correctUsername && password === correctPassword) {
+        loginBtn.classList.add('locked');
+        message.textContent = 'Access Granted 🔓';
+        message.style.color = 'green';
+      } else {
+        message.textContent = 'Wrong password! SMS will be sent.';
+        message.style.color = 'red';
+
+        // Here you can call your backend to send SMS
+        console.log('Trigger SMS alert!');
+      }
+    });
+  </script>
+</body>
+</html>
