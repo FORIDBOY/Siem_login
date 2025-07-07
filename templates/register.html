@@ -1,21 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Create Account</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            background: url("/static/background.png") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px #000;
+            text-align: center;
+            width: 300px;
+        }
+        input {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #3498db;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        a {
+            color: #f1c40f;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
-<body style="background-image: url('/static/background.png'); background-size: cover;">
+<body>
     <div class="container">
         <h2>Create Account</h2>
         {% if error %}
-            <p style="color:red;">{{ error }}</p>
+            <div class="error">{{ error }}</div>
         {% endif %}
-        <form method="POST" action="/register">
-            <input type="text" name="username" placeholder="Enter Username" required><br>
-            <input type="password" name="password" placeholder="Enter Password" required><br>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Enter username" required>
+            <input type="password" name="password" placeholder="Enter password" required>
             <button type="submit">Register</button>
         </form>
-        <a href="/">Back to Login</a>
+        <p><a href="/">← Back to Login</a></p>
     </div>
 </body>
 </html>
+
