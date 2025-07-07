@@ -78,3 +78,8 @@ def login():
     else:
         logging.warning(f"FAILED_LOGIN | User: {username} | IP: {ip} | Agent: {user_agent}")
 
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 10000))  # Render assigns this PORT dynamically
+    app.run(host='0.0.0.0', port=port)
+
+
