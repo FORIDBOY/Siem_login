@@ -1,95 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login Page</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://i.ibb.co/7YQK3gH/lock-bg.png') no-repeat center center fixed;
+      font-family: Arial, sans-serif;
+      background: url("/static/background.png") no-repeat center center fixed;
       background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      color: #fff;
     }
 
-    .login-box {
-      background-color: rgba(0, 0, 0, 0.7);
+    .container {
+      background: rgba(255, 255, 255, 0.85);
       padding: 40px;
-      border-radius: 15px;
-      text-align: left;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       width: 320px;
-    }
-
-    .login-box h2 {
-      font-weight: 600;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin: 12px 0 4px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 20px;
-      border: none;
-      outline: none;
-    }
-
-    .login-btn {
-      margin-top: 20px;
-      display: block;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: white;
-      color: black;
-      font-weight: bold;
-      border: 2px solid #ccc;
-      cursor: pointer;
-      margin-left: auto;
-      margin-right: auto;
       text-align: center;
-      line-height: 100px;
     }
 
-    .login-btn:hover {
-      background-color: #ddd;
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 95%;
+      padding: 10px;
+      background-color: #3498db;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
     }
 
     .error {
       color: red;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    a {
+      display: block;
       margin-top: 15px;
-      text-align: center;
-      display: none;
+      text-decoration: none;
+      color: #333;
     }
   </style>
 </head>
 <body>
-  <div class="login-box">
-    <h2>Welcome, <span style="font-weight:300">New User</span></h2> 
- <form action="/login" method="POST">
-  <label for="username">Username</label>
-  <input type="text" name="username" required>
+  <div class="container">
+    <h2>Login</h2>
+    <form method="POST" action="/login">
+      <input type="text" name="username" placeholder="Username" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+    </form>
 
-  <label for="password">Password</label>
-  <input type="password" name="password" required>
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
 
-  <button class="login-btn" type="submit">Login</button>
-</form>
-    </div>
-
-
-
+    <a href="/create">Create Account</a>
+  </div>
 </body>
 </html>
+
