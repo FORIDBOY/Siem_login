@@ -4,6 +4,23 @@ from datetime import datetime
 from twilio.rest import Client
 import os
 from dotenv import load_dotenv
+import sqlite3
+
+# Initialize SQLite DB if not exists
+def init_db():
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+init_db()
 
 load_dotenv()
 app = Flask(__name__)
